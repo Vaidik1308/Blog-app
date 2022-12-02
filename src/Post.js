@@ -11,6 +11,7 @@ const Post = ({post}) => {
         </Link>
         <p className='postBody'>
             {(post.body).length <= 25 ? post.body : `${(post.body).slice(0,25)}...`}
+            <Link className='morePara' to={`/post/${post.id}`}>More</Link>
         </p>
     </article>
   )

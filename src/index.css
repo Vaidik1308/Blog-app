@@ -254,8 +254,8 @@ body {
   .Nav li:focus, 
   .Nav li:hover a, 
   .Nav li:focus a  {
-    background-color: #eee;
-    color: #333;
+    background-color: #434242;
+    color: #eee;
   }
 
   .searchForm {
@@ -285,4 +285,18 @@ body {
     .App{
         width: 100%;
     }
+}
+
+
+
+
+.morePara:hover{
+  border: 1px solid black #FCF9BE;
+  background-color: #FAF7F0;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 5px;
+}
+.morePara:visited{
+  color:#000;
 }

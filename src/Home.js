@@ -4,6 +4,7 @@ import Feed from './Feed';
 const Home = ({posts,setPosts}) => {
   return (
     <main className='Home'>
+      
       {/* <h1>Home</h1> */}
       {posts.length ?(
         <Feed posts={posts}/>
