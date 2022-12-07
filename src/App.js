@@ -71,7 +71,7 @@ function App() {
       datetime: format(new Date(), 'MMMM dd, yyyy pp'),
       body:postBody,
     }
-    const postList = [newPosts,...posts];
+    const postList = [...posts,newPosts];
     setPosts(postList);
     setPostBody('');
     setPostTitle('')

@@ -166,7 +166,9 @@ body {
 }
 
 .postBody {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
+  margin-top: 1px;
+  margin-bottom: 6px;
 }
 
 .newPostForm {
@@ -289,6 +291,7 @@ body {
 
 
 
+/* my css */
 
 .morePara:hover{
   border: 1px solid black #FCF9BE;
@@ -299,4 +302,27 @@ body {
 }
 .morePara:visited{
   color:#000;
+}
+
+
+.writerName{
+  font-weight:600;
+  font-style:oblique;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+
+
+@media (max-width: 610px) {
+
+  .writerName{
+    font-weight:600;
+    font-style:oblique;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+  .postBody{
+    margin-top: 4px;
+  }
 }
