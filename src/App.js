@@ -7,7 +7,7 @@ import NewPost from './NewPost';
 import PostPage from './PostPage';
 import About from './About';
 import Missing from './Missing';
-import { Route, Routes } from 'react-router-dom' ;
+import { Route, Routes ,useNavigate} from 'react-router-dom' ;
 import { useState, useEffect } from 'react';
 import {format} from 'date-fns';
 import api from './api/posts';
@@ -19,6 +19,7 @@ function App() {
   const [searchResults,setSearchResults] = useState([]);
   const [postTitle,setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
+  const history = useNavigate();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -59,7 +60,7 @@ function App() {
     setPosts(postList);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const id = (posts.length) ? (posts.length + 1) : 1;
     const newPosts = {
@@ -68,10 +69,17 @@ function App() {
       datetime: format(new Date(), 'MMMM dd, yyyy pp'),
       body:postBody,
     }
-    const postList = [...posts,newPosts];
-    setPosts(postList);
-    setPostBody('');
-    setPostTitle('')
+    try{
+      const response = await api.post('/posts' , newPosts)
+      const postList = [...posts,response.data];
+      setPosts(postList);
+      setPostBody('');
+      setPostTitle('');
+      history('/');
+    }catch(err){
+      console.log(`ERROR: ${err.message}`);
+    }
+    
   }
   
 
