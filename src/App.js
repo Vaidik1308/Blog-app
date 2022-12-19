@@ -55,9 +55,15 @@ function App() {
 
 
   // functions for add and delete a post
-  const handleDelete = (id) => {
-    const postList = posts.filter(post => post.id !== id)
-    setPosts(postList);
+  const handleDelete = async (id) => {
+    try{
+      await api.delete(`/posts/${id}`)
+      const postList = posts.filter(post => post.id !== id)
+      setPosts(postList);
+      history('/')
+    }catch(err){
+      console.log(`ERROR: ${err.message}`);
+    }
   }
 
   const handleSubmit = async (e) => {
