@@ -9,7 +9,6 @@ const Post = ({post}) => {
             <h2>{post.title}</h2>
             <p className='postDate'>{post.datetime}</p>
         </Link>
-        <Link to="#"><p className='writerName'>Writer's name</p></Link>
         <p className='postBody'>
             {(post.body).length <= 25 ? post.body : `${(post.body).slice(0,25)}...`}
             <Link className='morePara' to={`/post/${post.id}`}>More</Link>

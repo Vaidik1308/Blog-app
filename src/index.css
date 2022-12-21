@@ -189,7 +189,7 @@ body {
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-right: 0.25rem;
-  outline: none;
+  /* outline: none; */
 }
 
 .newPostForm textarea {
@@ -220,12 +220,13 @@ body {
   background-color: #434242;
   color: #fff;
   cursor: pointer;
+  margin: 5px;
 }
 
 .PostPage button:hover{
-    background-color: #F3EFE0;
+    background-color: #A5F1E9;
     color: #434242;
-    border: #eee;
+    /* border: #eee; */
 }
 
 .statusMsg {
