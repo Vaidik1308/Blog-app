@@ -6,13 +6,15 @@ const Home = ({posts,setPosts}) => {
     <main className='Home'>
       
       {/* <h1>Home</h1> */}
-      {posts.length ?(
+      {posts && 
         <Feed posts={posts}/>
-      ) : (
-        <p style={{marginTop: "2rem"}}>
-          No Posts to display.
+      } 
+
+      {!posts.length && 
+        <p style={{marginTop: "2rem", textAlign:"center" ,fontSize:"1.2rem"}}>
+          Loading....
         </p>
-      )}
+      }
     </main>
   )
 }
