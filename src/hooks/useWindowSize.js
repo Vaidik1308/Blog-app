@@ -7,19 +7,21 @@ const useWindowSize = () => {
     });
 
     useEffect(() => {
+        // console.log("rendered");
         const handleResize = () => {
+            // console.log("size changed");
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight
             })
         }
 
-        handleResize();
+        // handleResize();
 
         window.addEventListener('resize', handleResize);
 
         const cleanUp = () => {
-            console.log('run if a useEffect dependencies changes');
+            // console.log('run if a useEffect dependencies changes');
             window.removeEventListener('resize',handleResize);
         }
         return cleanUp;

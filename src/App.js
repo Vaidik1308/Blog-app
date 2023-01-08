@@ -13,6 +13,7 @@ import {format} from 'date-fns';
 import api from './api/posts';
 import Edit from './Edit';
 import useWindowSize from './hooks/useWindowSize';
+import useAxiosfetch from './hooks/useAxiosFetch';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -23,32 +24,12 @@ function App() {
   const history = useNavigate();
   const [editTitle,setEditTitle] = useState('');
   const [editBody, setEditBody] = useState('');
-  const {width} = useWindowSize()
+  const {width} = useWindowSize();
+  const {data, fetchError,isLoading} = useAxiosfetch('http://localhost:3500/posts')
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try{
-        const response = await api.get('/posts');
-        if(response && response.data){
-          setPosts(response.data);
-        }
-      }catch(err){
-        if(err.response){
-          //Not in the 200 response range
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        }
-        else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    }
-    setTimeout(() => {
-      fetchPost();
-      
-    },1000)
-  },[])
+    setPosts(data)
+  },[data])
 
 
   useEffect(() => {
