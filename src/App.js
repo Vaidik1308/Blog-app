@@ -14,6 +14,7 @@ import api from './api/posts';
 import Edit from './Edit';
 import useWindowSize from './hooks/useWindowSize';
 import useAxiosfetch from './hooks/useAxiosFetch';
+import is from 'date-fns/esm/locale/is/index.js';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -114,8 +115,10 @@ function App() {
           path='/' 
           element=
             {<Home
-                 posts={searchResults} 
-                 setPosts={setPosts} 
+              fetchError={fetchError}
+              isLoading={isLoading}
+              posts={searchResults} 
+              setPosts={setPosts} 
             />}
         />
         <Route 
