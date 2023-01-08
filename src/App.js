@@ -13,9 +13,7 @@ import {format} from 'date-fns';
 import api from './api/posts';
 import Edit from './Edit';
 import useWindowSize from './hooks/useWindowSize';
-import useAxiosfetch from './hooks/useAxiosFetch';
-import is from 'date-fns/esm/locale/is/index.js';
-
+import useAxiosFetch from './hooks/useAxiosFetch';
 function App() {
   const [posts, setPosts] = useState([]);
   const [search,setSearch] = useState('');
@@ -26,7 +24,7 @@ function App() {
   const [editTitle,setEditTitle] = useState('');
   const [editBody, setEditBody] = useState('');
   const {width} = useWindowSize();
-  const {data, fetchError,isLoading} = useAxiosfetch('http://localhost:3500/posts')
+  const {data, fetchError,isLoading} = useAxiosFetch('http://localhost:3500/posts')
 
   useEffect(() => {
     setPosts(data)
